@@ -1,6 +1,6 @@
 package br.ufma.ecp.colecoes;
 
-public interface MyList<T> {
+public interface MyList<T> extends Iterable<T> {
 
     public void add (T e) ;
 

@@ -1,9 +1,11 @@
 package br.ufma.ecp.colecoes;
 
+import java.util.Iterator;
+
 public class MyLinkedList<T> implements MyList<T> {
     
 
-    private class Node {
+    public class Node {
         public T element;
         public Node next;
 
@@ -52,5 +54,11 @@ public class MyLinkedList<T> implements MyList<T> {
 
     public int size() {
         return size;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        // TODO Auto-generated method stub
+        return new MyLinkedListIterator(first);
     }
 }

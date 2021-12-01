@@ -1,5 +1,7 @@
 package br.ufma.ecp.colecoes;
 
+import java.util.Iterator;
+
 public class MyArrayList<T> implements MyList<T> {
     
     private Object[] elementos;
@@ -37,6 +39,12 @@ public class MyArrayList<T> implements MyList<T> {
 
     public int size() {
         return top;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+ 
+        return new MyArrayListIterator(this);
     }
     
 }
