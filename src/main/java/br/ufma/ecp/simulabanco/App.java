@@ -8,40 +8,16 @@ public class App {
         ag.addConta (new Conta (456, 100));
         ag.addConta (new Conta (489, 50));
 
-        int codigoConta = 456;
-        double valor = 1000;
+        int codigoConta = 4569;
+        double valor = 100;
 
-        int codigoerro = ag.saque (valor, codigoConta);
-
-        switch (codigoerro) {
-            case 0:
-                System.out.println("sucesso");
-                break;
-            case 1:
-                System.out.println("saldo insuficiente");
-                break;
-            case 2:
-                System.out.println("conta invalida");
-                break;
-            default:
-                break;  
-
-
+        try {
+            ag.saque (valor, codigoConta);
+            System.out.println("sucesso");
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-
-
-        
-        /*
-        if () {
-            System.out.println("saque realizado com sucesso");
-            System.out.print("Saldo atual:");
-            System.out.println(ag.getSaldo(codigoConta));
-        } else {
-            System.out.println("saldo insuficiente");
-            System.out.print("saldo atual:");
-            System.out.println(ag.getSaldo(codigoConta));
-        }
-        */
 
         
 
