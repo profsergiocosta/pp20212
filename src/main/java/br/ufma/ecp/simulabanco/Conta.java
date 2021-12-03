@@ -18,11 +18,11 @@ public class Conta {
         return codigo;
     }
 
-    public void saque(double valor) throws Exception {
+    public void saque(double valor) throws SaldoInsuficienteException {
         if (valor <= saldo){
             this.saldo = this.saldo - valor;
         } else {
-          throw (new Exception("saldo insuficiente"));
+          throw (new SaldoInsuficienteException());
         }
     
     }

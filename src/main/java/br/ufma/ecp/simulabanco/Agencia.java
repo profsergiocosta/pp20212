@@ -21,13 +21,13 @@ public class Agencia {
         contas.add(conta);
     }
 
-    public void saque(double valor, int codigoConta) throws Exception {
+    public void saque(double valor, int codigoConta) throws SaldoInsuficienteException, ContaInvalidaException {
         
       Conta c = buscaConta(codigoConta);
       if (c != null) {
          c.saque(valor);  
       } else {
-        throw new Exception("Conta Invalida");
+        throw new ContaInvalidaException();
       }
       
     }
