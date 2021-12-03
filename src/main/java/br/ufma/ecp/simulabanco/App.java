@@ -14,12 +14,11 @@ public class App {
         try {
             ag.saque (valor, codigoConta);
             System.out.println("sucesso");
-        } catch (Exception e) {
-            //e.printStackTrace();
-            System.out.println(e.getMessage());
+        } catch (ContaInvalidaException e) {
+            System.out.println("Digite uma conta valida");
+        } catch (SaldoInsuficienteException e) {
+            System.out.println("Saldo insuficiente");
         }
-
-        
-
+    
     }
 }
