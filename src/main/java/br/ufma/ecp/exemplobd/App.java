@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class App {
 
@@ -82,15 +83,28 @@ public class App {
 
     public static void main(String[] args) {
         Connection conn;
-        String url = "jdbc:derby:agenda;create=true";
+        //String url = "jdbc:derby:agenda;create=true";
+        String url = "jdbc:mysql://localhost:3306/agenda?user=sergio&password=1234";
+
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println(conn);
+        
             System.out.println("Conexão aberta com sucesso"); 
-           // criarTabela(conn); 
-            insere(conn, "maria", "maria@gmail.com", "select count(*) from contato2");
-            //imprime(conn);
+
+            ContatoDAO dao = new ContatoDAO(conn);
+            
+            //Contato contato = new Contato("sergio", "skosta@gmail.com", "1134");
+            //dao.create(contato);
+
+            
+            List<Contato> contatos = dao.retrive();
+            for (Contato c: contatos) {
+                System.out.println(c);
+            }
+            
+
             conn.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
