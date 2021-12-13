@@ -8,6 +8,7 @@ package br.ufma.ecp.exemplobd;
 // lombok
 
 public class Contato {
+    
     private String nome;
     private String email;
     private String telefone;
